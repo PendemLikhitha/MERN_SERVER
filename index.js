@@ -25,5 +25,8 @@ async function StartServer(){
         console.log(`Server live on port ${port}`)
     })
 }
+function testing(){
+    return 0;
+}
 StartServer();
 
