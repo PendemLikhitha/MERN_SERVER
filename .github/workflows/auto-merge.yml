@@ -1,0 +1,30 @@
+name: Auto Merge Main to Testing 
+
+on: 
+  push:
+    branches:
+      - main
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check The repo
+        uses: actions/checkout@v3
+        with: 
+          token: ${{secrets.ACTIONS_PAT}}
+
+      - name: Config Git
+        run: |
+         git config --global user.name 'PendemLikhitha'
+         git config --global user.email 'pendemlucky2004@gmail.com'
+
+      - name: Fetch all branches
+        run: git fetch --all
+
+      - name: Merge main into testing
+        run: |
+          git checkout testing
+          git merge -X theirs main --allow-unrelated-histories
+          git push origin testing
