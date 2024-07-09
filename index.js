@@ -12,26 +12,20 @@ const userApiFromRouter = require('./routes/userRoutes');
 
 app.use(express.json());
 app.use(cors());
-mongoose.connect(url,{useNewUrlParser:true,useUnifiedTopology:true}).then(()=>{console.log('DB connected')})
-.catch((err)=>{
-    console.log(err)
+mongoose.connect(url,{useNewUrlParser:true,useUnifiedTopology:true}).then(()=>{
+  //console.log('DB connected')
+  })
+.catch((err)=>{  
+  //console.log(err)
 });
 const server = new ApolloServer({typeDefs,resolvers})
 app.use('/users',userApiFromRouter);
 async function StartServer(){
-    await server.start();
-    server.applyMiddleware({app});
-    app.listen(port,()=>{
-        console.log(`Server live on port ${port}`)
-    })
+  await server.start();
+  server.applyMiddleware({app});
+  app.listen(port,()=>{    
+    console.log(`Server live on port ${port}`)
+   })
 }
-function Testing(){
-    return 1;
-}
-function Test2(){
-    return false;
-}
-Test2();
-Testing();
 StartServer();
-
+module.exports=app;

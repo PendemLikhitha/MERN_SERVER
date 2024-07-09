@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start":"node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +19,12 @@
     "graphql": "^16.9.0",
     "graphql-tools": "^9.0.1",
     "mongodb": "^6.8.0",
-    "mongoose": "^8.4.4"
+    "mongoose": "^8.4.4",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "superjest": "^0.1.0",
+    "supertest": "^7.0.0"
   }
 }
